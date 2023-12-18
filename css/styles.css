@@ -506,13 +506,13 @@ img {
     margin-right: 80px;
 }
 
-.footer-form-container {
+.footer-form {
     display:flex;
     align-items: center;
     gap: 24px;
 }
 
-.footer-input {
+.footer-input-email {
     width: 264px;
     height: 40px;
     border-radius: 4px;
@@ -530,11 +530,11 @@ img {
     outline: none;
 }
 
-.footer-input:focus {
+.footer-input-email:focus {
     border: 2px solid var(--WHITE, #FFF);
 }
 
-.footer-input::placeholder {
+.footer-input-email::placeholder {
     color: var(--WHITE, #FFF);
     font-family: Roboto;
     font-size: 12px;
@@ -545,12 +545,12 @@ img {
 }
 
 .footer-btn {
-    display: inline-flex;
+    display: flex;
     padding: 8px 24px;
     justify-content: center;
     align-items: center;
-    gap: 16px;
     border-radius: 4px;
+    gap: 16px;
     background-color: var(--IRIS, #4D5AE5);
     color: var(--WHITE, #FFF);
     /* Button Text */
@@ -563,11 +563,11 @@ img {
     border: none;
     cursor: pointer;
     transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-    background-image: url(../images/icons.svg#send);
-    background-repeat: no-repeat;
 }
 
-
+.footer-btn-icon {
+    fill: currentColor;
+}
 
 /* PORTFOLIO BUTTON */
 
@@ -715,6 +715,7 @@ img {
                 0px 1px 3px rgba(0, 0, 0, 0.12), 
                 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
+    padding: 72px 24px 24px 24px;
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -762,7 +763,7 @@ img {
     font-weight: 500;
     line-height: 24px; /* 150% */
     letter-spacing: 0.32px;
-    margin: 72px auto 16px;
+    margin-bottom: 16px;
 }
 
 .modal-form {
@@ -774,43 +775,84 @@ img {
 .form-group {
     display: flex;
     flex-direction: column;
-    margin: 0 auto 16px;
+    width: 360px;
+    margin-bottom: 8px;
+}
+
+.form-group-textarea {
+    display: flex;
+    flex-direction: column;
     width: 360px;
     margin-bottom: 16px;
 }
 
-.form-group label {
+.form-group-checkbox {
+    display: flex;
+    align-items: center;
+    width: 360px;
+    margin-bottom: 24px;
+}
+
+.form-label-text,
+.form-label-tel,
+.form-label-email,
+.form-label-textarea {
     color: var(--LIGHT-SLATE, #8E8F99);
     /* Small Text */
     font-family: Roboto;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 14px; /* 116.667% */
+    line-height: 1.17; /* 14px */
     letter-spacing: 0.48px;
     margin-bottom: 4px;
+}
+
+.form-input-icon {
+    position: relative;
+    width: 100%;
+    height: 40px;
+}
+
+.form-input-text-icon,
+.form-input-tel-icon,
+.form-input-email-icon {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
 }
 
 .input-text, 
 .input-tel, 
 .input-email {
-    width: 360px;
+    width: 100%;
     height: 40px;
     border-radius: 4px;
-    margin-bottom: 8px;
+    /* margin-bottom: 8px; */
     border: 1px solid var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.40));
-    outline: none;
-    padding: 8px 16px;
+    background-color: transparent;
+    outline: transparent;
+    padding-left: 38px;
+    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .input-textarea {
-    width: 360px;
+    width: 100%;
     height: 120px;
-     border-radius: 4px;
+    border-radius: 4px;
     border: 1px solid var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.40));
-    outline: none;
+    outline: transparent;
     padding: 8px 16px;
     resize: none;
+    color: var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.40));
+    /* Small Text */
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.17; /* 14px */
+    letter-spacing: 0.48px;
 }
 
 .input-text:focus,
@@ -818,6 +860,12 @@ img {
 .input-email:focus,
 .input-textarea:focus {
     border: 1px solid var(--IRIS, #4D5AE5);
+}
+
+.input-text:focus + .form-input-text-icon,
+.input-tel:focus + .form-input-tel-icon,
+.input-email:focus + .form-input-email-icon {
+    fill: var(--IRIS);
 }
 
 .input-textarea::placeholder {
@@ -832,18 +880,12 @@ img {
 }
 
 .input-checkbox {
-    color: var(--LIGHT-SLATE, #8E8F99);
-    /* Small Text */
-    font-family: Roboto;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 14px; /* 116.667% */
-    letter-spacing: 0.48px;
-    appearance: none;
+    cursor: pointer;
+    opacity: 0;
+    position: absolute;
 }
 
-.input-checkbox-span {
+.input-checkbox-link{
     color: var(--IRIS, #4D5AE5);
     /* Link Text */
     font-family: Roboto;
@@ -855,21 +897,46 @@ img {
     text-decoration-line: underline;
 }
 
-.modal-form label {
+.form-span-checkbox-icon {
+    width: 16px;
+    height: 16px;
+    border: 1px solid rgba(46, 47, 66, 0.4);
+    border-radius: 2px;
+    transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+                border 250ms cubic-bezier(0.4, 0, 0.2, 1), 
+                fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    fill: transparent;
+}
+
+.form-group-checkbox:hover .form-span-checkbox-icon {
+     background-color: #404bbf;
+}
+
+.input-checkbox:checked ~ .form-label-checkbox-icon {
+    background-color: green;
+    border: none;
+    fill: #F4F4FD;
+}
+
+.form-label-checkbox {
+    display: block;
     color: var(--LIGHT-SLATE, #8E8F99);
     /* Small Text */
     font-family: Roboto;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
-    line-height: 14px; /* 116.667% */
+    line-height: 1.17; /* 14px */
     letter-spacing: 0.48px;
 }
 
-.modal-submit-button {
+.form-submit-button {
+    display: block;
     width: 169px;
     height: 56px;
-    margin: 24px auto;
     padding: 16px 32px;
     border-radius: 4px;
     background: var(--IRIS, #4D5AE5);
@@ -877,6 +944,7 @@ img {
     border: none;
     color: var(--WHITE, #FFF);
     text-align: center;
+    margin: 0 auto; 
     /* Button Text */
     font-family: Roboto;
     font-size: 16px;
@@ -890,7 +958,7 @@ img {
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-submit-button:hover,
-.modal-sbumit-button:focus {
+.form-submit-button:hover,
+.form-sbumit-button:focus {
     background-color: var(--OCEAN);
 }
