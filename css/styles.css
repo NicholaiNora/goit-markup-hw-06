@@ -372,7 +372,7 @@ img {
 .customers-heading {
     color: var(--NAVY-BLUE, #2E2F42);
     text-align: center;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 36px;
     font-style: normal;
     font-weight: 700;
@@ -436,7 +436,7 @@ img {
 
 .footer-icon-paragraph, .footer-form-paragraph {
     color: var(--WHITE, #FFF);
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -520,7 +520,7 @@ img {
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.15);
     background-color: transparent;
     color: var(--WHITE, #FFF);
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -536,7 +536,7 @@ img {
 
 .footer-input-email::placeholder {
     color: var(--WHITE, #FFF);
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -668,7 +668,7 @@ img {
     padding: 40px 32px;
     background-color: var(--IRIS, #4D5AE5);
     color: var(--CLOUD, #F4F4FD);
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
@@ -758,7 +758,7 @@ img {
     width: 360px;
     color: var(--NAVY-BLUE, #2E2F42);
     text-align: center;
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 16px;
     font-style: normal;
     font-weight: 500;
@@ -797,7 +797,7 @@ img {
 .form-label {
     color: var(--LIGHT-SLATE, #8E8F99);
     /* Small Text */
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -843,7 +843,7 @@ img {
     background-color: transparent;
     color: var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.40));
     /* Small Text */
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -864,7 +864,7 @@ img {
 .input-textarea::placeholder {
     color: var(--NAVY-BLUE-modal, rgba(46, 47, 66, 0.40));
     /* Small Text */
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -877,10 +877,10 @@ img {
     opacity: 0;
 }
 
-.input-checkbox-link{
+.input-checkbox-link {
     color: var(--IRIS, #4D5AE5);
     /* Link Text */
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
@@ -914,19 +914,25 @@ img {
 }
 
 .form-label-checkbox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+    display: block;
     color: var(--LIGHT-SLATE, #8E8F99);
     /* Small Text */
-    font-family: Roboto;
+    font-family: "Roboto";
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
     line-height: 1.17; /* 14px */
     letter-spacing: 0.48px;
     cursor: pointer;
+    position: relative;
+}
+
+.form-label-span {
+    width: 338px;
+    height: 16px;
+    display: inline-block;
+    position: absolute;
+    left: 24px;
 }
 
 .form-submit-button {
